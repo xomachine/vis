@@ -255,6 +255,7 @@ static void ui_window_draw(UiWin *w) {
 	int view_width = view_width_get(view);
 	if (x + sidebar_width + view_width > ui->width)
 		view_width = ui->width - x - sidebar_width;
+        if (view_width <= 0) {return;}
 	for (const Line *l = line; l; l = l->next) {
 		if (sidebar) {
 			if (!l->lineno || !l->len || l->lineno == prev_lineno) {
